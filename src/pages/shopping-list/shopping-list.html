@@ -1,0 +1,32 @@
+<!--
+  Generated template for the ShoppingListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Shopping List</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="navigateToAddShoppingPage()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<ion-list>
+  <ion-list-header>Items</ion-list-header>
+  <ion-item *ngFor="let item of ShoppingList$ | async"
+            navPush="EditShoppingItemPage"
+            [navParams]="{item:item}" detail-push>
+    <h2>Item Name: {{item.name}}</h2>
+    <h3>Price: {{item.price}}</h3>
+    <h3>Quantity: {{item.quantity}}</h3>
+  </ion-item>
+</ion-list>
+</ion-content>
